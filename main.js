@@ -1,11 +1,15 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow} = require('electron')
+const path = require('path')
 let win
 
 function createWindow () {
-  // Create the browser window.
   win = new BrowserWindow({
     width: 800,
     height: 600,
+    minimizable: false,
+    maximizable: false,
+    resizable: false,
+    icon: path.join(__dirname, 'assets/icons/png/icon.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -13,8 +17,10 @@ function createWindow () {
     },
   });
 
-  // and load the index.html of the app.
+  // load the index.html of the app.
   win.loadFile('index.html')
+
+  win.setMenu(null)
 
   // Open the DevTools.
   //win.webContents.openDevTools()
