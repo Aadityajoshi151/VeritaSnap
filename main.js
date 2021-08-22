@@ -4,8 +4,8 @@ let win
 
 function createWindow () {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 170,
+    height: 70,
     minimizable: false,
     maximizable: false,
     resizable: false,
@@ -21,6 +21,7 @@ function createWindow () {
   win.loadFile('index.html')
 
   win.setMenu(null)
+  win.setSkipTaskbar(true)
 
   // Open the DevTools.
   //win.webContents.openDevTools()
