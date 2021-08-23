@@ -8,7 +8,7 @@ function createWindow () {
     height: 70,
     minimizable: false,
     maximizable: false,
-    resizable: false,
+    //resizable: false,
     icon: path.join(__dirname, 'assets/icons/png/icon.png'),
     webPreferences: {
       nodeIntegration: true,
@@ -24,7 +24,7 @@ function createWindow () {
   //win.setSkipTaskbar(true)
 
   // Open the DevTools.
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on('closed', () => {
     win = null
