@@ -1,6 +1,6 @@
 const { time } = require('console');
 const { desktopCapturer,ipcRenderer} = require('electron')
-const fs = require('fs');
+var fs = require('fs');
 
 document.getElementById("ssbtn").addEventListener("click",function(){
     takeScreenShot();
@@ -15,11 +15,13 @@ function takeScreenShot()
             width: screen.width
         }
 }).then( sources => {
-        url = sources[0].thumbnail.toPNG()
-        fs.writeFile("E:/"+getTimeStamp(),url , (err) => {
+        
+        fs.writeFile("E:/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
-                alert("There was a problem while taking the screenshot")
-        });
+            alert(err)
+          else {
+            alert("Image Created Successfully!")
+        }});
             
         
     })
@@ -27,5 +29,5 @@ function takeScreenShot()
 function getTimeStamp()
 {
     var dt = new Date()
-    return (dt.getDate()+"-"+dt.getMonth()+1+"-"+dt.getFullYear()+" "+dt.getHours()+"."+dt.getMinutes());
+    return (dt.getDate()+"-"+(dt.getMonth()+1)+"-"+dt.getFullYear()+" "+dt.getHours()+"."+dt.getMinutes()+"."+dt.getSeconds());
 }
