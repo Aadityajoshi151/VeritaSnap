@@ -15,8 +15,13 @@ function takeScreenShot()
             width: screen.width
         }
 }).then( sources => {
-        
-        fs.writeFile("C:/Users/"+os.userInfo().username+"/Pictures/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
+        if (!fs.existsSync("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap")) 
+        {
+            fs.mkdir("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap", (err) => 
+            {
+        })
+    }
+        fs.writeFile("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
             alert("There was a problem in creating the image")
         });   
