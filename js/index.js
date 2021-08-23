@@ -18,16 +18,12 @@ function takeScreenShot()
         
         fs.writeFile("E:/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
-            alert(err)
-          else {
-            alert("Image Created Successfully!")
-        }});
-            
-        
+            alert("There was a problem in creating the image")
+        });   
     })
 }
 function getTimeStamp()
 {
     var dt = new Date()
-    return (dt.getDate()+"-"+(dt.getMonth()+1)+"-"+dt.getFullYear()+" "+dt.getHours()+"."+dt.getMinutes()+"."+dt.getSeconds());
+    return ("VS "+dt.getDate()+"-"+(dt.getMonth()+1)+"-"+dt.getFullYear()+" "+dt.getHours()+"."+dt.getMinutes()+"."+dt.getSeconds());
 }
