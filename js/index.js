@@ -1,11 +1,11 @@
 const { time } = require('console');
 const { desktopCapturer,ipcRenderer} = require('electron')
 var fs = require('fs');
+const os = require('os')
 
 document.getElementById("ssbtn").addEventListener("click",function(){
     takeScreenShot();
 })
-
 function takeScreenShot()
 {
     desktopCapturer.getSources({ 
@@ -16,7 +16,7 @@ function takeScreenShot()
         }
 }).then( sources => {
         
-        fs.writeFile("E:/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
+        fs.writeFile("C:/Users/"+os.userInfo.username+"/Pictures/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
             alert("There was a problem in creating the image")
         });   
