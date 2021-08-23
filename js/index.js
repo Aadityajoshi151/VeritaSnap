@@ -16,7 +16,7 @@ function takeScreenShot()
         }
 }).then( sources => {
         
-        fs.writeFile("C:/Users/"+os.userInfo.username+"/Pictures/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
+        fs.writeFile("C:/Users/"+os.userInfo().username+"/Pictures/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
             alert("There was a problem in creating the image")
         });   
