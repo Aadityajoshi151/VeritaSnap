@@ -1,4 +1,4 @@
-const { app, BrowserWindow} = require('electron')
+const { app, BrowserWindow,globalShortcut} = require('electron')
 const path = require('path')
 let win
 
@@ -31,7 +31,12 @@ function createWindow () {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready',() => {
+  createWindow()
+  globalShortcut.register('CommandOrControl+Shift+P', () => {
+      win.webContents.send('takess');
+    })
+} )
 
 app.on('window-all-closed', () => {
 

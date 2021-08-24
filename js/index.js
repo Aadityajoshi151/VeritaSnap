@@ -6,6 +6,11 @@ const os = require('os')
 document.getElementById("ssbtn").addEventListener("click",function(){
     takeScreenShot();
 })
+
+ipcRenderer.on('takess', (event, arg) => {
+    takeScreenShot();   
+});
+
 function takeScreenShot()
 {
     desktopCapturer.getSources({ 
