@@ -9,7 +9,7 @@ const os = require('os')
 
 
 document.getElementById("ssbtn").addEventListener("click",function(){
-    ipcRenderer.send('asynchronous-message', 'Sound Play')
+    takeScreenShot();
 })
 
 ipcRenderer.on('takess', (event, arg) => {
@@ -18,6 +18,7 @@ ipcRenderer.on('takess', (event, arg) => {
 
 function takeScreenShot()
 {
+    ipcRenderer.send('playsoundeffect')
     desktopCapturer.getSources({ 
         types: ['screen'],
         thumbnailSize: {

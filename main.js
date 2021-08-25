@@ -52,6 +52,6 @@ app.on('activate', () => {
     createWindow()
   }
 })
-ipcMain.on('asynchronous-message', (event, arg) => {
+ipcMain.on('playsoundeffect', (event) => {
   sound.play(filePath);
 })
