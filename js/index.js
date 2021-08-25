@@ -3,6 +3,7 @@ const { desktopCapturer,ipcRenderer} = require('electron')
 var fs = require('fs');
 const os = require('os')
 
+
 document.getElementById("ssbtn").addEventListener("click",function(){
     takeScreenShot();
 })
@@ -28,7 +29,9 @@ function takeScreenShot()
     }
         fs.writeFile("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
-            alert("There was a problem in creating the image")
+            {
+                alert("There was a problem in creating the image")
+            }        
         });   
     })
 }
