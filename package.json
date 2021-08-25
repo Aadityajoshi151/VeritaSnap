@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "13.2.1"
+  },
+  "dependencies": {
+    "sound-play": "^1.1.0"
   }
 }

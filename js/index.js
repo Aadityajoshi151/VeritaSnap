@@ -3,9 +3,13 @@ const { desktopCapturer,ipcRenderer} = require('electron')
 var fs = require('fs');
 const os = require('os')
 
+// const path = require("path");
+// const filePath = path.join(__dirname, "shutter.wav");
+
+
 
 document.getElementById("ssbtn").addEventListener("click",function(){
-    takeScreenShot();
+    ipcRenderer.send('asynchronous-message', 'Sound Play')
 })
 
 ipcRenderer.on('takess', (event, arg) => {
@@ -31,7 +35,8 @@ function takeScreenShot()
             if (err)
             {
                 alert("There was a problem in creating the image")
-            }        
+            }
+                     
         });   
     })
 }

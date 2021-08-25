@@ -1,6 +1,8 @@
-const { app, BrowserWindow,globalShortcut} = require('electron')
+const { app, BrowserWindow,globalShortcut,ipcMain} = require('electron')
 const path = require('path')
+const sound = require("sound-play");
 let win
+const filePath = path.join(__dirname, "shutter.mp3");
 
 function createWindow () {
   win = new BrowserWindow({
@@ -49,4 +51,7 @@ app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
+})
+ipcMain.on('asynchronous-message', (event, arg) => {
+  sound.play(filePath);
 })
