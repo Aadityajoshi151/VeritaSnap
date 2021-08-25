@@ -52,6 +52,4 @@ app.on('activate', () => {
     createWindow()
   }
 })
-ipcMain.on('playsoundeffect', (event) => {
-  sound.play(filePath);
-})
+ipcMain.on('playsoundeffect', (event) => sound.play(filePath))
