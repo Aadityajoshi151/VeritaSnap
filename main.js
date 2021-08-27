@@ -8,9 +8,10 @@ function createWindow () {
   win = new BrowserWindow({
     width: 170,
     height: 70,
+    show:false,
     minimizable: false,
     maximizable: false,
-    //resizable: false,
+    resizable: false,
     icon: path.join(__dirname, 'assets/icons/png/icon.png'),
     webPreferences: {
       nodeIntegration: true,
