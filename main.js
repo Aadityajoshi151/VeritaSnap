@@ -3,6 +3,7 @@ const path = require('path')
 const sound = require("sound-play");
 let win
 const filePath = path.join(__dirname, "shutter.mp3");
+var AutoLaunch = require('auto-launch');
 
 function createWindow () {
   win = new BrowserWindow({
@@ -50,6 +51,11 @@ app.on('ready',() => {
   globalShortcut.register('CommandOrControl+Shift+P', () => {
       win.webContents.send('takess');
     })
+    var VeritaSnapAutoLauncher = new AutoLaunch({
+      name: 'VeritaSnap',
+      path: app.getPath("exe"),
+    });
+    VeritaSnapAutoLauncher.enable();
 } )
 
 app.on('window-all-closed', () => {
