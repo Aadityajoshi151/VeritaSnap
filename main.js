@@ -24,10 +24,10 @@ function createWindow () {
   win.loadFile('html/index.html')
 
   win.setMenu(null)
-  //win.setSkipTaskbar(true)
+  win.setSkipTaskbar(true)
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   win.on('closed', () => {
     win = null
