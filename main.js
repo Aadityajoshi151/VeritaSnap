@@ -2,7 +2,7 @@ const { app, BrowserWindow,globalShortcut,ipcMain} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
 let win
-const filePath = path.join(__dirname, "shutter.mp3");
+const filePath = path.join(__dirname, "/assets/shutter.mp3");
 var AutoLaunch = require('auto-launch');
 
 function createWindow () {
