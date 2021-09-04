@@ -1,7 +1,15 @@
-const { app, BrowserWindow,globalShortcut,ipcMain} = require('electron')
+const { app, BrowserWindow,globalShortcut,ipcMain,dialog} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
+const firstRun = require('electron-first-run');
 let win
+const msgboxoptions = {
+  title:"Welcome",
+  icon:path.join(__dirname, 'assets/icons/png/welcome.png'),
+  buttons:["OK"],
+  message:"fjklsjflsd",
+  detail:"sdhfjksdjskdj"
+}
 const filePath = path.join(process.resourcesPath, "shutter.mp3");
 var AutoLaunch = require('auto-launch');
 
@@ -47,6 +55,9 @@ if (!gotTheLock) {
 }
 
 app.on('ready',() => {
+  const isFirstRun = firstRun()
+  console.log(isFirstRun);
+  dialog.showMessageBox(null,msgboxoptions);
   createWindow()
   globalShortcut.register('CommandOrControl+Shift+P', () => {
       win.webContents.send('takess');
