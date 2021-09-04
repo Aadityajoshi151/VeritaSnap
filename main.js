@@ -56,8 +56,10 @@ if (!gotTheLock) {
 
 app.on('ready',() => {
   const isFirstRun = firstRun()
-  console.log(isFirstRun);
-  dialog.showMessageBox(null,msgboxoptions);
+  if (isFirstRun)
+  {
+    dialog.showMessageBox(null,msgboxoptions);
+  }
   createWindow()
   globalShortcut.register('CommandOrControl+Shift+P', () => {
       win.webContents.send('takess');
