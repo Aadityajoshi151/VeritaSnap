@@ -2,10 +2,7 @@ const { time } = require('console');
 const { desktopCapturer,ipcRenderer} = require('electron')
 var fs = require('fs');
 const os = require('os')
-
-// const path = require("path");
-// const filePath = path.join(__dirname, "shutter.wav");
-
+const directory = "C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap"
 
 
 document.getElementById("ssbtn").addEventListener("click",function(){
@@ -26,13 +23,13 @@ function takeScreenShot()
             width: screen.width
         }
 }).then( sources => {
-        if (!fs.existsSync("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap")) 
+        if (!fs.existsSync(directory)) 
         {
-            fs.mkdir("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap", (err) => 
+            fs.mkdir(directory, (err) => 
             {
         })
     }
-        fs.writeFile("C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
+        fs.writeFile(directory+"/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
             {
                 alert("There was a problem in creating the image")

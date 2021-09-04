@@ -5,10 +5,10 @@ const firstRun = require('electron-first-run');
 let win
 const msgboxoptions = {
   title:"Welcome",
-  icon:path.join(__dirname, 'assets/icons/png/welcome.png'),
+  icon:path.join(__dirname, 'assets/icons/png/clapping.png'),
   buttons:["OK"],
-  message:"fjklsjflsd",
-  detail:"sdhfjksdjskdj"
+  message:"Congratulations on installing VeritaSnap!",
+  detail:"-Use Ctrl + Shift + P to take a screenshot.\n-The images will be saved in Pictures/Veritasnap.\n-The application will start automatically on startup.There is no need to run the application manually."
 }
 const filePath = path.join(process.resourcesPath, "shutter.mp3");
 var AutoLaunch = require('auto-launch');
