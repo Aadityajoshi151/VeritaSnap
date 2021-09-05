@@ -2,7 +2,9 @@ const { time } = require('console');
 const { desktopCapturer,ipcRenderer} = require('electron')
 var fs = require('fs');
 const os = require('os')
+const Notifier = require('node-notifier');
 const directory = "C:/Users/"+os.userInfo().username+"/Pictures/VeritaSnap"
+var timestamp
 
 
 document.getElementById("ssbtn").addEventListener("click",function(){
@@ -29,10 +31,18 @@ function takeScreenShot()
             {
         })
     }
-        fs.writeFile(directory+"/"+getTimeStamp()+".png",url = sources[0].thumbnail.toPNG(), (err) => {
+        timestamp = getTimeStamp();
+        fs.writeFile(directory+"/"+timestamp+".png",url = sources[0].thumbnail.toPNG(), (err) => {
             if (err)
             {
                 alert("There was a problem in creating the image")
+            }
+            else
+            {
+                Notifier.notify({
+                    title: "Screenshot Saved!",
+                    message: timestamp+" saved in Pictures/VeritaSnap"
+                  });
             }
                      
         });   
