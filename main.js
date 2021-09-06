@@ -8,9 +8,9 @@ const msgboxoptions = {
   icon:path.join(__dirname, 'assets/icons/png/clapping.png'),
   buttons:["OK"],
   message:"Congratulations on installing VeritaSnap!",
-  detail:"-Use Ctrl + Shift + P to take a screenshot.\n-The images will be saved in Pictures/Veritasnap.\n-The application will start automatically on startup.There is no need to run the application manually."
+  detail:"-Use Ctrl+Shift+P to take a screenshot.\n-The images will be saved in Pictures/Veritasnap.\n-The application will start automatically on startup.There is no need to run the application manually."
 }
-const filePath = path.join(process.resourcesPath, "shutter.mp3");
+const soundeffectpath = path.join(process.resourcesPath, "shutter.mp3");
 var AutoLaunch = require('auto-launch');
 
 function createWindow () {
@@ -35,7 +35,6 @@ function createWindow () {
   win.setMenu(null)
   win.setSkipTaskbar(true)
 
-  // Open the DevTools.
   //win.webContents.openDevTools()
 
   win.on('closed', () => {
@@ -83,4 +82,4 @@ app.on('activate', () => {
     createWindow()
   }
 })
-ipcMain.on('playsoundeffect', (event) => sound.play(filePath))
+ipcMain.on('playsoundeffect', (event) => sound.play(soundeffectpath))
