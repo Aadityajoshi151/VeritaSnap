@@ -1,4 +1,4 @@
-const { app, BrowserWindow,globalShortcut,ipcMain} = require('electron')
+const { app, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage,dialog} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
 let win
@@ -56,6 +56,8 @@ app.on('ready',() => {
       path: app.getPath("exe"),
     });
     VeritaSnapAutoLauncher.enable();
+    const iconPath = path.join(__dirname, "assets/icons/png/icon128.png");
+    tray = new Tray(nativeImage.createFromPath(iconPath));
 } )
 
 app.on('window-all-closed', () => {
