@@ -58,6 +58,15 @@ app.on('ready',() => {
     VeritaSnapAutoLauncher.enable();
     const iconPath = path.join(__dirname, "assets/icons/png/icon128.png");
     tray = new Tray(nativeImage.createFromPath(iconPath));
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: "Exit VeritaSnap", click: function () {
+          
+        }
+      },
+    ])
+    tray.setToolTip('VeritaSnap')
+    tray.setContextMenu(contextMenu)
 } )
 
 app.on('window-all-closed', () => {
