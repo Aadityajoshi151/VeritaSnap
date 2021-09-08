@@ -1,15 +1,8 @@
-const { app, BrowserWindow,globalShortcut,ipcMain,dialog} = require('electron')
+const { app, BrowserWindow,globalShortcut,ipcMain} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
-const firstRun = require('electron-first-run');
 let win
-const msgboxoptions = {
-  title:"Welcome",
-  icon:path.join(__dirname, 'assets/icons/png/clapping.png'),
-  buttons:["OK"],
-  message:"Congratulations on installing VeritaSnap!",
-  detail:"-Use Ctrl+Shift+P to take a screenshot.\n-The images will be saved in Pictures/Veritasnap.\n-The application will start automatically on startup.There is no need to run the application manually."
-}
+
 const soundeffectpath = path.join(process.resourcesPath, "shutter.mp3");
 var AutoLaunch = require('auto-launch');
 
@@ -54,11 +47,6 @@ if (!gotTheLock) {
 }
 
 app.on('ready',() => {
-  const isFirstRun = firstRun()
-  if (isFirstRun)
-  {
-    dialog.showMessageBox(null,msgboxoptions);
-  }
   createWindow()
   globalShortcut.register('CommandOrControl+Shift+P', () => {
       win.webContents.send('takess');
