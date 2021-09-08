@@ -1,4 +1,4 @@
-const { app, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage,dialog} = require('electron')
+const { app,Menu, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
 let win
@@ -61,7 +61,7 @@ app.on('ready',() => {
     const contextMenu = Menu.buildFromTemplate([
       {
         label: "Exit VeritaSnap", click: function () {
-          
+          app.quit()
         }
       },
     ])
