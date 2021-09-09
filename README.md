@@ -33,10 +33,10 @@ According to [this](https://www.makeuseof.com/windows-7-people-are-still-using/ 
 ![Screenshot2](screenshots/2.png)
 
 ------------
-![Screenshot3](screenshots/3.png)
+![Screenshot3](screenshots/3.PNG)
 
 ------------
-![Screenshot4](screenshots/4.png)
+![Screenshot4](screenshots/4.PNG)
 
 ## 🌱 Improvements/TODOs:
 - There is a small lag when sound effect is triggered. I might remove it as the bubble notification is enough to notify the user.
