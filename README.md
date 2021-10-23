@@ -44,6 +44,7 @@ According to [this](https://www.makeuseof.com/windows-7-people-are-still-using/ 
 - Making the utility more lightweight in size.
 - Adding a confirm messagebox while user is quitting the utility.
 - Fix a typo in installation wizard.
+- Unistall wizard should ask to quit the app before uninstalling.
 
 ## 🙏 Credits:
 - Icon made by [Freepik](https://www.freepik.com "Freepik") from [Flaticon](https://www.flaticon.com "Flaticon"). See it [here](https://www.flaticon.com/premium-icon/screenshot_3677242?term=screenshot&page=1&position=21&page=1&position=21&related_id=3677242 "here").
