@@ -7,6 +7,13 @@ const options_for_second_instance_lock = {
   title: 'Already Running',
   message: 'VeritaSnap Is Already Running. Use Ctrl+Shift+P to take screenshot.',
 };
+const options_for_quit = {
+  type: 'question',
+  buttons: ['No','Yes'],
+  defaultId: 1,
+  title: 'Quit',
+  message: 'Are you sure you want to quit?',
+};
 let win
 
 const soundeffectpath = path.join(process.resourcesPath, "shutter.mp3");
@@ -67,7 +74,10 @@ app.on('ready',() => {
     const contextMenu = Menu.buildFromTemplate([
       {
         label: "Exit VeritaSnap", click: function () {
-          app.quit()
+          dialog.showMessageBox(null, options_for_quit, (response) => {
+              if (response==1)
+                app.quit()
+          });
         }
       },
     ])
