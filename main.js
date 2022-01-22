@@ -1,6 +1,12 @@
-const { app,Menu, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage} = require('electron')
+const { app,Menu, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage,dialog} = require('electron')
 const path = require('path')
 const sound = require("sound-play");
+const options_for_second_instance_lock = {
+  type: 'info',
+  buttons: ['OK'],
+  title: 'Already Running',
+  message: 'VeritaSnap Is Already Running. Use Ctrl+Shift+P to take screenshot.',
+};
 let win
 
 const soundeffectpath = path.join(process.resourcesPath, "shutter.mp3");
@@ -41,7 +47,7 @@ if (!gotTheLock) {
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
-    win.webContents.send("Second Instance");
+    dialog.showMessageBox(null, options_for_second_instance_lock);
     return;
   })
 }

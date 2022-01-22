@@ -53,6 +53,3 @@ function getTimeStamp()
     var dt = new Date()
     return ("VS "+dt.getDate()+"-"+(dt.getMonth()+1)+"-"+dt.getFullYear()+" "+dt.getHours()+"."+dt.getMinutes()+"."+dt.getSeconds());
 }
-ipcRenderer.on("Second Instance" , (event, arg) => {
-    alert("VeritaSnap Is Already Running. Use Ctrl+Shift+P to take screenshot.")
-});
