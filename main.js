@@ -74,10 +74,11 @@ app.on('ready',() => {
     const contextMenu = Menu.buildFromTemplate([
       {
         label: "Exit VeritaSnap", click: function () {
-          dialog.showMessageBox(null, options_for_quit, (response) => {
-              if (response==1)
-                app.quit()
-          });
+          dialog.showMessageBox(null, options_for_quit).then(result => {
+            if (result.response)
+              app.quit();
+          }
+          );
         }
       },
     ])
