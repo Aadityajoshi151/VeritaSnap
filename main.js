@@ -1,6 +1,6 @@
 const { app,Menu, BrowserWindow,globalShortcut,ipcMain,Tray, nativeImage,dialog} = require('electron')
 const path = require('path')
-const sound = require("sound-play");
+
 const options_for_second_instance_lock = {
   type: 'info',
   buttons: ['OK'],
@@ -16,7 +16,6 @@ const options_for_quit = {
 };
 let win
 
-const soundeffectpath = path.join(process.resourcesPath, "shutter.mp3");
 var AutoLaunch = require('auto-launch');
 
 function createWindow () {
@@ -98,4 +97,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-ipcMain.on('playsoundeffect', (event) => sound.play(soundeffectpath))

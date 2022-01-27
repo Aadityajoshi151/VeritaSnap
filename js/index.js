@@ -17,7 +17,6 @@ ipcRenderer.on('takess', (event, arg) => {
 
 function takeScreenShot()
 {
-    ipcRenderer.send('playsoundeffect')
     desktopCapturer.getSources({ 
         types: ['screen'],
         thumbnailSize: {
